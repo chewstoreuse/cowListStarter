@@ -36,6 +36,63 @@ app.listen(PORT, () => {
 
 //*****MYSQL***** */
 
+// //route to get all cows in the database
+// app.get('/getCows', (req, res) => {
+//   db.getAllCows((err, results) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.status(200).send(results);
+//     }
+//   });
+// });
+
+// //route to get cow based on search
+// app.get('/findCow', (req, res) => {
+//   db.findCow(req.query.name, (err, results) => {
+//     // console.log(req.query);
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.status(200).send(results);
+//     }
+//   })
+// });
+
+// //route to add a cow to the database
+// app.post('/addCow', (req, res) => {
+//   db.addCow(req.body.name, req.body.description, (err, results) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.status(201).send(results);
+//     }
+//   });
+// });
+
+// //route to edit the cow description
+// app.put('/editCow', (req, res) => {
+//   // console.log(req.query)
+//   db.editCow(req.query.name, req.query.description, (err, results) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.sendStatus(204);
+//     }
+//   });
+// });
+
+// //route to delete a cow
+// app.delete('/deleteCow', (req, res) => {
+//   db.deleteCow(req.body.name, (err, results) => {
+//     if (err) {
+//       res.status(500).send(err);
+//     } else {
+//       res.sendStatus(204);
+//     }
+//   })
+// });
+
 //*****MONGODB** */
 
 //route to get all cows in db
@@ -69,4 +126,26 @@ app.post('/addCow', (req, res) => {
     .catch(err => {
       res.status(500).send(err);
     })
+});
+
+//route to edit cow information
+app.put('/editCow', (req, res) => {
+  db.editCow(req.query.name, req.query.description)
+    .then(response => {
+      res.sendStatus(204);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+});
+
+//route to delete cow
+app.delete('/deleteCow', (req, res) => {
+  db.deleteCow(req.body.name)
+    .then(response => {
+      res.sendStatus(204);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
 });
