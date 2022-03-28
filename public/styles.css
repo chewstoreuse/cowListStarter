@@ -1,0 +1,23 @@
+body, html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#app {
+  margin: 0 30% 0 30%;
+  width: 40%;
+}
+
+.add-cow {
+  margin: 15px 0 15px 0;
+}
+
+.spotlight {
+  border: solid 1px;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: skyblue;
+}
+
+.cow-list {
+  margin-top: 20px;
+}

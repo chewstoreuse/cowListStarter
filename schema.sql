@@ -2,3 +2,13 @@
 -- CREATE YOUR DATABASE
 -- CREATE YOUR TABLES
 -- ADD RECORDS TO YOUR TABLE
+DROP DATABASE cowlist;
+
+CREATE DATABASE cowlist;
+USE cowlist;
+
+CREATE TABLE cows (
+  id INT NOT NULL AUTO_INCREMENT,
+  name text,
+  description text
+);
